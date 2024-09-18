@@ -27,7 +27,7 @@ const Home = () => {
         <button className='logout-btn' onClick={handleLogout}>Logout</button>
         {user.role === 'admin' && (
           <button className='admin-btn' onClick={handleAdminNavigation}>
-            Go to Admin
+            Go to Admin page
           </button>
         )}
       </div>
