@@ -1,42 +1,43 @@
-
 // eslint-disable-next-line no-unused-vars
-import React from 'react'
-import './App.css'
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import Home from './pages/Home'
-import Admin from './pages/Admin'
-import Register from './pages/Register'
-import Login from './pages/Login'
-import {Toaster} from 'react-hot-toast'
-import AdminLayout from './Layouts/AdminLayout'
-import UserLayout from './Layouts/UserLayout'
-import PublicLayouts from './Layouts/PublicLayouts'
+import React from 'react';
+import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Admin from './pages/Admin';
+import Register from './pages/Register';
+import Login from './pages/Login';
+import { Toaster } from 'react-hot-toast';
+import AdminLayout from './Layouts/AdminLayout';
+import UserLayout from './Layouts/UserLayout';
+import PublicLayouts from './Layouts/PublicLayouts';
+
 const App = () => {
   return (
     <>
       <BrowserRouter>
-      <Toaster/>
+        <Toaster />
         <Routes>
 
-          <Route>
-            <Route path='/' element={<UserLayout/>}></Route>
-          <Route index element={<Home/>}/>
+          {/* Public Routes */}
+          <Route element={<PublicLayouts />}>
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
           </Route>
 
-          <Route path='/admin' element={<AdminLayout/>}>
-           <Route index element={<Admin/>}/>
+          {/* User Routes */}
+          <Route element={<UserLayout />}>
+            <Route path="/" element={<Home />} />
           </Route>
-          
-          <Route path='/' element={<PublicLayouts/>}>
-          <Route path='login' element={<Login/>}/>
-          <Route path='register' element={<Register/>}/>
+
+          {/* Admin Routes */}
+          <Route element={<AdminLayout />}>
+            <Route path="/admin" element={<Admin />} />
           </Route>
-          
-       
+
         </Routes>
       </BrowserRouter>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
