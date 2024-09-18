@@ -21,25 +21,27 @@ const Login = () => {
       return;
     }
 
-    setLoading(true); // Start loading
+    setLoading(true);
     try {
       const request = await post('/api/auth/login', { email, password });
       const response = request.data;
 
       if (request.status === 200) {
+        dispatch(SetUser(response)); // Set user in Redux
+
+        // Redirect based on user role
         if (response.user.role === 'admin') {
           navigate('/admin');
         } else {
           navigate('/');
         }
         toast.success(response.message);
-        dispatch(SetUser(response)); // Set user in Redux
       }
     } catch (error) {
       console.error(error);
       toast.error('Login failed. Please check your credentials');
     } finally {
-      setLoading(false); // Stop loading
+      setLoading(false);
     }
   };
 

@@ -7,23 +7,14 @@ const AdminLayout = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!user) {
-      // Redirect to login if user doesn't exist
-      navigate('/login');
-    } else if (user.role !== 'admin') {
-      // If user is not admin, redirect to home page
-      navigate('/');
+    if (!user || user.role !== 'admin') {
+      navigate('/login');  // Redirect to login if not an admin
     }
   }, [navigate, user]);
 
-  // Display a loading screen while user data is being fetched
-  if (!user) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <div>
-      <Outlet />
+      {user && user.role === 'admin' ? <Outlet /> : null}  {/* Only render if admin */}
     </div>
   );
 };
