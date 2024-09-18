@@ -22,12 +22,14 @@ const App = () => {
             <Route path='/' element={<UserLayout/>}></Route>
           <Route index element={<Home/>}/>
           </Route>
+
           <Route path='/admin' element={<AdminLayout/>}>
            <Route index element={<Admin/>}/>
           </Route>
+          
           <Route path='/' element={<PublicLayouts/>}>
-          <Route path='/login' element={<Login/>}/>
-          <Route path='/register' element={<Register/>}/>
+          <Route path='login' element={<Login/>}/>
+          <Route path='register' element={<Register/>}/>
           </Route>
           
        

@@ -1,11 +1,14 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { post } from '../services/ApiEndpoint';
+import { Logout } from '../redux/AuthSlice';
 
 const Home = () => {
   const user = useSelector((state) => state.Auth.user);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleAdminNavigation = () => {
     if (user && user.role === 'admin') {
@@ -13,9 +16,17 @@ const Home = () => {
     }
   };
 
-  const handleLogout = () => {
-    // Implement logout functionality, e.g., clearing user from state and localStorage
-    navigate('/login');
+  const handleLogout = async () => {
+    try {
+      const request = await post('/api/auth/logout');
+      const response = request.data;
+      if (request.status === 200) {
+        dispatch(Logout()); // Call the Logout action
+        navigate('/login');
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   if (!user) return <div>Loading...</div>;
@@ -23,7 +34,7 @@ const Home = () => {
   return (
     <div className='home-container'>
       <div className='user-card'>
-        <h2>Welcome, {user.name}</h2>
+        <h2>Welcome, {user && user.name}</h2>
         <button className='logout-btn' onClick={handleLogout}>Logout</button>
         {user.role === 'admin' && (
           <button className='admin-btn' onClick={handleAdminNavigation}>
