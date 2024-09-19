@@ -54,4 +54,15 @@ const logout= async(req,res)=>{
         console.log(error)
     }
 }
-export  {register,login,logout}
+const CheckUser = async (req,res)=>{
+    try {
+        const user = req.user
+        if(!user){
+            res.status(404).json({message:'user is not found'})
+        }
+        res.status(200).json(user)
+    } catch (error) {
+        res.status(401).json({message:"user is not found"})
+    }
+}
+export  {register,login,logout,CheckUser}

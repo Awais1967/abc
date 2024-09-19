@@ -7,7 +7,7 @@ const AdminLayout = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!user || user.role !== 'admin') {
+    if (!user || user.role !== "admin") {
       navigate('/login');  // Redirect to login if not an admin
     }
   }, [navigate, user]);

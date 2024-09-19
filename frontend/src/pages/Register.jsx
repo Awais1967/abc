@@ -37,7 +37,7 @@ const Register = () => {
           onChange={(e)=>{setUsername(e.target.value)}} />
         </div>
         <div className='input-group'>
-          <label htmlFor="Email">Email</label>
+          <label htmlFor="email">Email</label>
           <input type="email" name="" id="email"
           onChange={(e)=>{setEmail(e.target.value)}} />
         </div>
