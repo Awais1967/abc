@@ -11,7 +11,11 @@ import UserLayout from './Layouts/UserLayout';
 import PublicLayouts from './Layouts/PublicLayouts';
 import { useDispatch } from 'react-redux';
 import { updateUser } from './redux/AuthSlice';
-
+import Librarydepartment from './pages/librarydepartment';
+import Feesdepartment from './pages/feesdepartment';
+import Examdepartment from './pages/examdepartment';
+import Coordinationdepartment from './pages/coordinationdepartment';
+import Sservicedepartment from './pages/Sservicedepartment';
 const App = () => {
   const dispatch = useDispatch()
   useEffect(()=>{
@@ -31,6 +35,11 @@ const App = () => {
         <Route path="/" element={<PublicLayouts />}>
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
+          <Route path="libdepart" element={< Librarydepartment/>} />
+          <Route path="examdepart" element={<Examdepartment/>} />
+          <Route path="coodepart" element={<Coordinationdepartment />} />
+          <Route path="ssdepart" element={<Sservicedepartment />} />
+          <Route path="feesdepart" element={<Feesdepartment />} />
         </Route>
       </Routes>
     </BrowserRouter>
