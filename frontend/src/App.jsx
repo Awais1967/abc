@@ -12,8 +12,8 @@ import PublicLayouts from './Layouts/PublicLayouts';
 import { useDispatch } from 'react-redux';
 import { updateUser } from './redux/AuthSlice';
 import Librarydepartment from './pages/librarydepartment';
-import Feesdepartment from './pages/feesdepartment';
-import Examdepartment from './pages/examdepartment';
+import Feesdepartment from './pages/Feesdepartment';
+import Examdepartment from './pages/Examdepartment';
 import Coordinationdepartment from './pages/coordinationdepartment';
 import Sservicedepartment from './pages/Sservicedepartment';
 const App = () => {
