@@ -6,6 +6,7 @@ import cors from 'cors'
 import DBCon from './utlis/db.js'
 import AuthRoutes from './routes/Auth.js'
 import AdminRoutes from './routes/AdminRoute.js'
+import Usertrack from './routes/Usertrack.js'
 import cookieParser from 'cookie-parser'
 dotenv.config()
 const PORT = process.env.PORT || 3000
@@ -19,6 +20,7 @@ app.use(cors({
 }))
 app.use('/api/auth',AuthRoutes)
 app.use('/api/admin',AdminRoutes)
+app.use('/api/userstatus',Usertrack)
 // mongo db
 DBCon()
 app.get('/',(req,res)=>{

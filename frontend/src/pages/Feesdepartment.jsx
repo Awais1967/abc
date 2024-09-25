@@ -16,7 +16,7 @@ const feesdepartment = () => {
               <th>Sap Id</th>
               <th>Email</th>
               <th>Total Fees</th>
-              <th>Remaining <Dues></Dues></th>
+              <th>Remaining Dues</th>
               <th>Action</th>
             </tr>
           </thead>

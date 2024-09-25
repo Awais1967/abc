@@ -5,6 +5,7 @@ const userSchema = new mongoose.Schema({
             type:String,
             required: true
         },
+        sapid: {type: Number, required:true},
         email:{
             type: String,
             required: true,
