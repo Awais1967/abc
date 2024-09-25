@@ -9,10 +9,11 @@ const Register = () => {
   const [name,setUsername] = useState('')
   const [email,setEmail] = useState('')
   const [password,setPassword] = useState('')
+  const [sapid, setSapid] = useState('')
   const handleSubmit=async(e)=>{
     e.preventDefault()
     try {
-       const request = await post('/api/auth/register',{name,email,password})
+       const request = await post('/api/auth/register',{name,email,password,sapid})
        const response = request.data
        console.log(response)
        if(request.status==200){
@@ -34,6 +35,11 @@ const Register = () => {
         <div className='input-group'>
           <label htmlFor="Username">Username</label>
           <input type="text" name="" id="Username"
+          onChange={(e)=>{setUsername(e.target.value)}} />
+        </div>
+        <div className='input-group'>
+          <label htmlFor="sapid">Sap I'd</label>
+          <input type="text" name="" id="sapid"
           onChange={(e)=>{setUsername(e.target.value)}} />
         </div>
         <div className='input-group'>

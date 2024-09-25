@@ -1,4 +1,4 @@
-import TrackUserStatus from "../models/trackuserstatus";
+import TrackUserStatus from "../models/trackuserstatus.js";
 
 const Userstatus = async(req,res)=>{
     try {
